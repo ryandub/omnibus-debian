@@ -1,11 +1,18 @@
-FROM stackbrew/debian:7
+FROM debian:6
 MAINTAINER ryan.walker@rackspace.com 
+
+RUN echo 'deb http://ppa.launchpad.net/git-core/ppa/ubuntu lucid main\ndeb-src http://ppa.launchpad.net/git-core/ppa/ubuntu lucid main' > /etc/apt/sources.list.d/git.list
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E1DF1F24
+RUN echo 'deb http://ppa.launchpad.net/brightbox/ruby-ng/ubuntu lucid main\ndeb-src http://ppa.launchpad.net/brightbox/ruby-ng/ubuntu lucid main' > /etc/apt/sources.list.d/ruby.list
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C3173AA6
 
 RUN apt-get update && apt-get install -y \
     git \
     curl \
     build-essential \
-    ruby1.9.1-full \
+    ruby1.9.3 \
+    rubygems \
+    ruby-switch \
     libssl-dev \
     libreadline-dev \
     libxslt1-dev \
