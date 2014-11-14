@@ -20,7 +20,10 @@ RUN apt-get update && apt-get install -y \
     libcurl4-openssl-dev \
     zlib1g-dev \
     libexpat1-dev \
-    libicu-dev
+    libicu-dev \
+    python2.6
+
+RUN ln -s /usr/bin/python2.6 /usr/bin/python
 
 RUN gem install bundler --no-ri --no-rdoc
 
