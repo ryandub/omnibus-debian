@@ -1,4 +1,4 @@
-FROM stackbrew/debian:7
+FROM debian:7
 MAINTAINER ryan.walker@rackspace.com 
 
 RUN apt-get update && apt-get install -y \
@@ -13,7 +13,8 @@ RUN apt-get update && apt-get install -y \
     libcurl4-openssl-dev \
     zlib1g-dev \
     libexpat1-dev \
-    libicu-dev
+    libicu-dev \
+    python
 
 RUN gem install bundler --no-ri --no-rdoc
 
